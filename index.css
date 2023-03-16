@@ -16,10 +16,10 @@ body {
 
 h2 {
   margin: 5%;
-  font-size: 2rem;
+  font-size: 2.25rem;
   font-weight: 100;
   border-bottom: 1px dotted #525f7f;
-  padding-bottom: 2rem;
+  padding-bottom: 1.5rem;
 }
 
 #container {
@@ -29,24 +29,30 @@ h2 {
 
 .repo, #search-result, #search {
   background: #fff;
-  padding: 20px;
+  padding: 3rem;
   border-radius: 8px;
   box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25), 0 18px 36px -18px rgba(0, 0, 0, 0.3), 0 -12px 36px -8px rgba(0, 0, 0, 0.025);
 }
 
-#repos {
+.flex {
   display: flex;
+  gap: 1.5rem;
+}
+
+.column {
   flex-direction: column;
-  gap: 30px;
+}
+
+#repos {
+  gap: 2.25rem;
 }
 
 #search {
   background-color: #f6f9fc;
   display: flex;
   justify-content: space-between;
-  gap: 10px;
-  margin: 40px 0;
-  padding: 40px;
+  gap: 0.75rem;
+  margin: 3rem 0;
 }
 #search label {
   position: relative;
@@ -60,23 +66,19 @@ h2 {
   color: inherit;
 }
 #search input[type=submit] {
-  width: 100px;
+  width: 7.5rem;
+}
+#search input[type=submit]:hover {
+  cursor: pointer;
 }
 
 #search-result {
-  margin: 20px 0;
+  margin: 1.5rem 0;
   text-align: center;
 }
 
 .repo {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-.repo__wrapper {
-  display: flex;
-  gap: 20px;
 }
 .repo__name {
   font-size: 1.2rem;
@@ -87,13 +89,10 @@ h2 {
 }
 .repo__avatar {
   display: block;
-  width: 60px;
+  width: 4.5rem;
   aspect-ratio: 1;
   border-radius: 50%;
   flex-grow: 1;
-}
-.repo__owner {
-  margin-bottom: 20px;
 }
 
 .invalid {

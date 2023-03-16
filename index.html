@@ -15,39 +15,49 @@
   <div id="container">
 
     <form name="search" id="search">
+
       <label for="query">
-        <input type="text" name="query" id="query" placeholder="Ключевое слово для поиска" required>
-        <span id="error">текст ошибки</span>
+        <input type="text" name="query" id="query" placeholder="Ключевое слово для поиска" required maxlength="256">
+        <span id="error"></span>
       </label>
 
       <input type="submit" value="Поиск">
+
     </form>
 
-    <div id="search-result">Ничего не найдено</div>
+    <div id="search-result" hidden>Ничего не найдено</div>
 
-    <ul id="repos">
-      <li class="repo">
-        <nav>
-          <a class="repo__name" href="#" target="_blank">
-            Название репозитория
-          </a>
-        </nav>
-        <div class="repo__wrapper">
-          <div>
-            <img class="repo__avatar" src="#" alt="Аватар автора">
-          </div>
-          <div>
-            <p class="repo__owner">Владелец: <b>Владелец</b></p>
-            <p class="repo__description">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel, nam! Nam eveniet ut aliquam ab asperiores,
-              accusamus iure veniam corporis incidunt reprehenderit accusantium id aut architecto harum quidem dolorem
-              in!
-            </p>
-          </div>
+    <ul id="repos" class="flex column">
+
+      <li class="repo flex">
+
+        <div>
+          <img class="repo__avatar" alt="Аватар владелеца"
+            src="https://avatars.githubusercontent.com/u/86525822?s=96&v=4">
         </div>
-        <p class="repo__date">
-          Дата последних изменениий: <b>2019-08-22</b>
-        </p>
+
+        <div class="flex column">
+
+          <p class="repo__owner">Владелец: <b>Владелец</b></p>
+
+          <nav>
+            <a class="repo__name" href="#" target="_blank">
+              Название репозитория
+            </a>
+          </nav>
+
+          <p class="repo__description">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel, nam! Nam eveniet ut aliquam ab asperiores,
+            accusamus iure veniam corporis incidunt reprehenderit accusantium id aut architecto harum quidem dolorem
+            in!
+          </p>
+
+          <p class="repo__date">
+            Дата последних изменениий: <b>2019-08-22</b>
+          </p>
+
+        </div>
+
       </li>
     </ul>
   </div>
