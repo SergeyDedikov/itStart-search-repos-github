@@ -86,6 +86,10 @@ h2 {
   font-weight: 600;
   color: #9251ac;
   letter-spacing: 0.02rem;
+  text-decoration: none;
+}
+.repo__name:hover {
+  text-decoration: underline;
 }
 .repo__avatar {
   display: block;

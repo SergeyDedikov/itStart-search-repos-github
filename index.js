@@ -19,6 +19,8 @@ const url = new URL(PATH_NAME, BASE_URL);
 // создание строки для поиска
 function createSearchString(url, query) {
   url.searchParams.set('q', query);
+  // сортируем по количеству звёзд
+  url.searchParams.set('sort', 'stars');
   return url.href + '+in:name'; // ищем по именам
 }
 
@@ -49,7 +51,7 @@ function createCard(data) {
         </a>
       </nav>
       <p>&starf; ${(data.stargazers_count) ? data.stargazers_count : '0'}</p>
-      <p>${(data.description) ? data.description : ''}</p>
+      <p>${(data.description) ? data.description : 'Нет описания'}</p>
       <p>Последние изменения: <b>${(data.updated_at).slice(0, 10)}</b></p>
     </div>`
   );
