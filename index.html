@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search for GitHub repositories</title>
+  <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+  <h2>Поиск репозиториев GitHub</h2>
+
+  <div id="container">
+
+    <form name="search" id="search">
+      <label for="query">
+        <input type="text" name="query" id="query" placeholder="Ключевое слово для поиска" required>
+        <span id="error">текст ошибки</span>
+      </label>
+
+      <input type="submit" value="Поиск">
+    </form>
+
+    <div id="search-result">Ничего не найдено</div>
+
+    <ul id="repos">
+      <li class="repo">
+        <nav>
+          <a class="repo__name" href="#" target="_blank">
+            Название репозитория
+          </a>
+        </nav>
+        <div class="repo__wrapper">
+          <div>
+            <img class="repo__avatar" src="#" alt="Аватар автора">
+          </div>
+          <div>
+            <p class="repo__owner">Владелец: <b>Владелец</b></p>
+            <p class="repo__description">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel, nam! Nam eveniet ut aliquam ab asperiores,
+              accusamus iure veniam corporis incidunt reprehenderit accusantium id aut architecto harum quidem dolorem
+              in!
+            </p>
+          </div>
+        </div>
+        <p class="repo__date">
+          Дата последних изменениий: <b>2019-08-22</b>
+        </p>
+      </li>
+    </ul>
+  </div>
+
+  <script src="./index.js"></script>
+</body>
+
+</html>

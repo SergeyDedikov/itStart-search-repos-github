@@ -1,0 +1,107 @@
+html
+  font-size: 14px
+
+*
+  box-sizing: border-box
+  padding: 0
+  margin: 0
+
+$size: 20px
+
+body
+  background: #f6f9fc
+  font-family: "Open Sans", sans-serif
+  color: #525f7f
+
+h2
+  margin: 5%
+  font-size: 2rem
+  font-weight: 100
+  border-bottom: 1px dotted #525f7f
+  padding-bottom: 2rem
+
+#container
+  width: 50vw
+  margin: 5% auto
+
+%wrapper
+  background: #fff
+  padding: $size
+  border-radius: 8px
+  box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25), 0 18px 36px -18px rgba(0, 0, 0, 0.3), 0 -12px 36px -8px rgba(0, 0, 0, 0.025)
+
+#repos
+  display: flex
+  flex-direction: column
+  gap: $size * 1.5
+
+#search
+  @extend %wrapper
+  background-color: #f6f9fc
+  display: flex
+  justify-content: space-between
+  gap: $size * 0.5
+  margin:$size * 2 0
+  padding: $size * 2
+
+  & label
+    position: relative
+    flex-grow: 1
+
+  & input
+    width: 100%
+    padding: 5px 10px
+    font-size: inherit
+    font-family: inherit
+    color: inherit
+
+    &[type="submit"]
+      width: $size * 5
+
+#search-result
+  @extend %wrapper
+  margin: $size 0
+  text-align: center
+
+.repo
+  @extend %wrapper
+  position: relative
+  display: flex
+  flex-direction: column
+  gap: $size
+
+  &__wrapper
+    display: flex
+    gap: $size
+
+  &__name
+    font-size: 1.2rem
+    line-height: 1.4
+    font-weight: 600
+    color: #9251ac
+    letter-spacing: 0.02rem
+
+  &__avatar
+    display: block
+    width: $size * 3
+    aspect-ratio: 1
+    border-radius: 50%
+    flex-grow: 1
+  
+  &__owner
+    margin-bottom: $size
+
+// Стили ошибок
+.invalid
+  border-color: #e30f0f
+
+#error
+  position: absolute
+  left: 0
+  top: calc( 100% + 5px )
+  color: #8f1919
+  font-size: small
+
+@media screen and ( max-width: 768px )
+  #container
+    width: 80vw
