@@ -18,10 +18,10 @@ const url = new URL(PATH_NAME, BASE_URL);
 
 // создание строки для поиска
 function createSearchString(url, query) {
-  url.searchParams.set('q', query);
+  url.searchParams.set('q', `${query} in:name,description`);  // ищем в имени или описании
   // сортируем по количеству звёзд
   url.searchParams.set('sort', 'stars');
-  return url.href + '+in:name'; // ищем по именам
+  return url.href;
 }
 
 let repositories = [];
@@ -82,8 +82,13 @@ function formSubmit(e) {
   clearList(list);
 
   // получаем строку из поля ввода и создаём url поиска
-  let searchUrl = createSearchString(url, this.query.value)
+  let searchUrl = createSearchString(url, this.query.value);
 
+  // снимаем фокус с инпута
+  this.query.blur();
+  // очищаем поле ввода
+  this.reset();
+  
   // отправляем запрос на сервер
   fetch(searchUrl,
     {
@@ -106,10 +111,7 @@ function formSubmit(e) {
       console.log(repositories);
       // создаём карточки и вставляем в разметку
       repositories.forEach((item) => insertCard(list, createCard(item)));
-      // снимаем фокус с инпута
-      this.query.blur();
-      // очищаем поле ввода
-      this.reset();
+      
     })
     .catch(err => console.log(err));
 
