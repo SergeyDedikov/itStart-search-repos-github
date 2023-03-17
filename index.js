@@ -64,11 +64,10 @@ function insertCard(container, card) {
   container.append(card);
 }
 
-// очищаем разметку
-function clearList(container) {
-  if (!container.children.length == 0) {
-    container.innerHTML = '';
-  }
+// изменяем сообщение о результате
+function changeResultMessage(message, isHidden) {
+  result.textContent = message;
+  result.hidden = isHidden;
 }
 
 // отправка запроса
@@ -79,16 +78,17 @@ function formSubmit(e) {
   // тут валидация
 
   // очищаем предыдущий результат
-  clearList(list);
+  list.innerHTML = '';
+
+  // показываем сообщение о поиске
+  changeResultMessage('Идёт поиск...', false);
 
   // получаем строку из поля ввода и создаём url поиска
   let searchUrl = createSearchString(url, this.query.value);
 
-  // снимаем фокус с инпута
-  this.query.blur();
-  // очищаем поле ввода
-  this.reset();
-  
+  // снимаем фокус с инпутов
+  for (let elem of this.elements) elem.blur();
+
   // отправляем запрос на сервер
   fetch(searchUrl,
     {
@@ -108,12 +108,20 @@ function formSubmit(e) {
       // получаем данные с сервера
       // берём первые 10
       repositories = data.items.slice(0, 10);
-      console.log(repositories);
-      // создаём карточки и вставляем в разметку
-      repositories.forEach((item) => insertCard(list, createCard(item)));
-      
+
+      // если массив пустой
+      if (repositories.length == 0) {
+        // показываем сообщение
+        changeResultMessage('Ничего не найдено', false);
+      } else {
+        // иначе создаём карточки и вставляем в разметку
+        changeResultMessage('', true);
+        repositories.forEach((item) => insertCard(list, createCard(item)));
+      }
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+      changeResultMessage(err, false);
+    });
 
 }
 
