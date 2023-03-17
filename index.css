@@ -16,10 +16,10 @@ body {
 
 h2 {
   margin: 5%;
-  font-size: 2.25rem;
+  font-size: 30px;
   font-weight: 100;
   border-bottom: 1px dotted #525f7f;
-  padding-bottom: 1.5rem;
+  padding-bottom: 20px;
 }
 
 #container {
@@ -29,14 +29,14 @@ h2 {
 
 .repo, #search-result, #search {
   background: #fff;
-  padding: 3rem;
+  padding: 40px;
   border-radius: 8px;
   box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25), 0 18px 36px -18px rgba(0, 0, 0, 0.3), 0 -12px 36px -8px rgba(0, 0, 0, 0.025);
 }
 
 .flex {
   display: flex;
-  gap: 1.5rem;
+  gap: 20px;
 }
 
 .column {
@@ -44,15 +44,15 @@ h2 {
 }
 
 #repos {
-  gap: 2.25rem;
+  gap: 20px;
 }
 
 #search {
   background-color: #f6f9fc;
   display: flex;
   justify-content: space-between;
-  gap: 0.75rem;
-  margin: 3rem 0;
+  gap: 10px;
+  margin: 40px 0;
 }
 #search label {
   position: relative;
@@ -66,19 +66,25 @@ h2 {
   color: inherit;
 }
 #search input[type=submit] {
-  width: 7.5rem;
+  width: 100px;
 }
 #search input[type=submit]:hover {
   cursor: pointer;
 }
 
 #search-result {
-  margin: 1.5rem 0;
+  margin: 20px 0;
   text-align: center;
 }
 
 .repo {
-  position: relative;
+  display: grid;
+  grid-template-columns: -webkit-max-content 1fr;
+  grid-template-columns: max-content 1fr;
+  gap: 20px;
+}
+.repo__info {
+  width: 100%;
 }
 .repo__name {
   font-size: 1.2rem;
@@ -93,10 +99,14 @@ h2 {
 }
 .repo__avatar {
   display: block;
-  width: 4.5rem;
+  width: 60px;
   aspect-ratio: 1;
   border-radius: 50%;
-  flex-grow: 1;
+}
+.repo__description {
+  max-height: 100px;
+  overflow-wrap: anywhere;
+  overflow-y: auto;
 }
 
 .invalid {

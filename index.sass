@@ -6,7 +6,7 @@ html
   padding: 0
   margin: 0
 
-$size: 1.5rem
+$size: 20px
 
 body
   background: #f6f9fc
@@ -38,7 +38,7 @@ h2
   flex-direction: column
 
 #repos
-  gap: $size * 1.5
+  gap: $size
 
 #search
   @extend %wrapper
@@ -72,7 +72,12 @@ h2
 
 .repo
   @extend %wrapper
-  position: relative
+  display: grid
+  grid-template-columns: max-content 1fr
+  gap: $size
+
+  &__info
+    width: 100%
 
   &__name
     font-size: 1.2rem
@@ -90,7 +95,12 @@ h2
     width: $size * 3
     aspect-ratio: 1
     border-radius: 50%
-    flex-grow: 1
+
+  &__description
+    max-height: $size * 5
+    overflow-wrap: anywhere
+    overflow-y: auto
+    
 
 // Стили ошибок
 .invalid

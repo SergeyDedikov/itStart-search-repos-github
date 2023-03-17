@@ -30,7 +30,7 @@ let repositories = [];
 function createCard(data) {
 
   let card = document.createElement('li');
-  card.className = 'repo flex';
+  card.className = 'repo';
 
   card.insertAdjacentHTML(
     'afterbegin',
@@ -40,7 +40,7 @@ function createCard(data) {
         alt="Аватар владельца"
         src=${data.owner.avatar_url}>
     </div>
-    <div class="flex column">
+    <div class="repo__info flex column">
       <p>Владелец: <b>${data.owner.login}</b></p>
       <nav>
         <a
@@ -51,7 +51,7 @@ function createCard(data) {
         </a>
       </nav>
       <p>&starf; ${(data.stargazers_count) ? data.stargazers_count : '0'}</p>
-      <p>${(data.description) ? data.description : 'Нет описания'}</p>
+      <p class="repo__description">${(data.description) ? data.description : 'Нет описания'}</p>
       <p>Последние изменения: <b>${(data.updated_at).slice(0, 10)}</b></p>
     </div>`
   );
