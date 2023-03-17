@@ -70,12 +70,39 @@ function changeResultMessage(message, isHidden) {
   result.hidden = isHidden;
 }
 
+/**
+ * Validation
+*/
+function showErrors(elem) {
+  // если поле пустое
+  if (elem.validity.valueMissing) {
+    elem.classList.add('invalid');
+    elem.nextElementSibling.textContent = 'Поле должно быть заполнено';
+  }
+}
+
+function hideErrors(elem) {
+  if (elem.classList.contains('invalid')) {
+    elem.classList.remove('invalid');
+    elem.nextElementSibling.textContent = '';
+  }
+}
+
+function formValidation(e) {
+  let input = e.target;
+
+  // валиден ли инпут
+  if (!input.checkValidity()) {
+    showErrors(input);
+  } else {
+    hideErrors(input);
+  }
+}
+
 // отправка запроса
 function formSubmit(e) {
 
   e.preventDefault();
-
-  // тут валидация
 
   // очищаем предыдущий результат
   list.innerHTML = '';
@@ -122,10 +149,10 @@ function formSubmit(e) {
     .catch(err => {
       changeResultMessage(err, false);
     });
-
 }
 
 /**
  * Event Listeners
 */
+form.addEventListener('input', formValidation);
 form.addEventListener('submit', formSubmit);
