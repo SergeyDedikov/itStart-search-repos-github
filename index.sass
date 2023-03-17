@@ -64,6 +64,9 @@ h2
 
       &:hover
         cursor: pointer
+      
+      &:disabled
+        cursor: not-allowed
 
 #search-result
   @extend %wrapper
@@ -100,11 +103,13 @@ h2
     max-height: $size * 5
     overflow-wrap: anywhere
     overflow-y: auto
-    
 
 // Стили ошибок
 .invalid
   border-color: #e30f0f
+
+.disabled
+  pointer-events: none
 
 #error
   position: absolute

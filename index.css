@@ -71,6 +71,9 @@ h2 {
 #search input[type=submit]:hover {
   cursor: pointer;
 }
+#search input[type=submit]:disabled {
+  cursor: not-allowed;
+}
 
 #search-result {
   margin: 20px 0;
@@ -111,6 +114,10 @@ h2 {
 
 .invalid {
   border-color: #e30f0f;
+}
+
+.disabled {
+  pointer-events: none;
 }
 
 #error {

@@ -17,7 +17,11 @@
     <form name="search" id="search">
 
       <label for="query">
-        <input type="text" name="query" id="query" placeholder="Ключевое слово для поиска" required maxlength="50">
+        <input type="text" name="query" id="query"
+          required
+          minlength="3"
+          maxlength="50"
+          placeholder="Ключевое слово для поиска">
         <span id="error"></span>
       </label>
 
@@ -31,7 +35,8 @@
 
   </div>
 
-  <script src="./index.js"></script>
+  <script src="./scripts/validate.js"></script>
+  <script src="./scripts/index.js"></script>
 </body>
 
 </html>

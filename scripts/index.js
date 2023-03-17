@@ -70,35 +70,6 @@ function changeResultMessage(message, isHidden) {
   result.hidden = isHidden;
 }
 
-/**
- * Validation
-*/
-function showErrors(elem) {
-  // если поле пустое
-  if (elem.validity.valueMissing) {
-    elem.classList.add('invalid');
-    elem.nextElementSibling.textContent = 'Поле должно быть заполнено';
-  }
-}
-
-function hideErrors(elem) {
-  if (elem.classList.contains('invalid')) {
-    elem.classList.remove('invalid');
-    elem.nextElementSibling.textContent = '';
-  }
-}
-
-function formValidation(e) {
-  let input = e.target;
-
-  // валиден ли инпут
-  if (!input.checkValidity()) {
-    showErrors(input);
-  } else {
-    hideErrors(input);
-  }
-}
-
 // отправка запроса
 function formSubmit(e) {
 
@@ -145,6 +116,9 @@ function formSubmit(e) {
         changeResultMessage('', true);
         repositories.forEach((item) => insertCard(list, createCard(item)));
       }
+
+      // сброс полей формы
+      this.reset();
     })
     .catch(err => {
       changeResultMessage(err, false);
@@ -154,5 +128,4 @@ function formSubmit(e) {
 /**
  * Event Listeners
 */
-form.addEventListener('input', formValidation);
 form.addEventListener('submit', formSubmit);
